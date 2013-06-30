@@ -2,6 +2,12 @@ Assets\Logo.png
 Assets\SmallLogo.png
 Assets\SplashScreen.png
 Assets\StoreLogo.png
-App.xaml
-Common\StandardStyles.xaml
-MainPage.xaml
+App.xbf
+Bing.Maps\Themes\Generic.xbf
+Common\StandardStyles.xbf
+MainPage.xbf
+Pages\Places\CategoryPage.xbf
+Pages\Places\SelectedPlacePage.xbf
+Pages\Places\SubCategoriesPage.xbf
+Pages\Problems\TroublesPage.xbf
+Common\ReadMe.txt

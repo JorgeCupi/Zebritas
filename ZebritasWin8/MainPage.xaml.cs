@@ -11,6 +11,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ZebritasWin8.Pages.Menus;
+using ZebritasWin8.Pages.Problems;
 
 namespace ZebritasWin8
 {
@@ -22,6 +24,14 @@ namespace ZebritasWin8
         public MainPage()
         {
             this.InitializeComponent();
+            animationEnded = true;
+            stbMapFLip.AutoReverse = true;
+            stbMapFLip.Completed += stbMapFLip_Completed;
+        }
+
+        void stbMapFLip_Completed(object sender, object e)
+        {
+            
         }
 
         /// <summary>
@@ -32,6 +42,34 @@ namespace ZebritasWin8
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
+        }
+        public bool animationEnded { get; set; }
+        private void rtnSettings_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if(animationEnded)
+            {
+                stbMapFLip.Begin();
+            }
+            else
+            {
+                stbMapFLip.Resume();
+            }
+
+        }
+
+        private void rtnAbout_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void rtnProblems_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CategoryPage));
+        }
+
+        private void map_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(TroublesPage));
         }
     }
 }

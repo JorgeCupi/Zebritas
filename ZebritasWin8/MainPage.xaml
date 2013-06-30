@@ -7,6 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:maps="using:Bing.Maps">
+	<Page.Resources>
+		<Storyboard x:Name="stbMapFLip" AutoReverse="False">
+			<DoubleAnimation Duration="0:0:0.2" To="90" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="map" d:IsOptimized="True">
+				<DoubleAnimation.EasingFunction>
+					<CubicEase EasingMode="EaseOut"/>
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+			<DoubleAnimation Duration="0:0:0.4" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="rectangle" d:IsOptimized="True">
+				<DoubleAnimation.EasingFunction>
+					<CubicEase EasingMode="EaseOut"/>
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+	</Page.Resources>
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -22,8 +48,7 @@
         <TextBlock Text="Zebritas"
                    FontSize="80"
                    Margin="0,60,0,0"
-                   Grid.Column="1"/>
-        
+                   Grid.Column="1"/>        
         <Grid
             Grid.Row="1"
             Grid.Column="1">
@@ -44,19 +69,31 @@
                     <ColumnDefinition Width="15*"/>
                 </Grid.ColumnDefinitions>
                 <Rectangle Name="rtnSettings"
+                           Tapped="rtnSettings_Tapped"
                    Fill="Blue"/>
 
                 <Rectangle Name="rtnAbout"
-                   Fill="White"
+                           Tapped="rtnAbout_Tapped"
+                           Fill="White"
                            Grid.Column="2"/>
             </Grid>
-            <maps:Map
-                    Grid.RowSpan="3"
-                Credentials="AnX1Ce23CkVCB9D7puW1VJGwm9ERHBuZO6sYLLdXzJtgH8fOI-lnczQiuF417WSs"/>
+            <maps:Map x:Name="map" Grid.RowSpan="3"
+                      Tapped="map_Tapped"
+                Credentials="AnX1Ce23CkVCB9D7puW1VJGwm9ERHBuZO6sYLLdXzJtgH8fOI-lnczQiuF417WSs">
+            	<maps:Map.Projection>
+            		<PlaneProjection/>
+            	</maps:Map.Projection>
+            </maps:Map>
+			<Rectangle x:Name="rectangle" Grid.RowSpan="3" Fill="Green" Visibility="Collapsed" >
+				<Rectangle.Projection>
+					<PlaneProjection RotationX="-180"/>
+				</Rectangle.Projection>
+			</Rectangle>
             <Rectangle Name="rtnProblems"
                    Grid.Row="3"
                    Grid.Column="3"
                    Grid.ColumnSpan="3"
+                       Tapped="rtnProblems_Tapped"
                    Fill="Yellow"/>
         </Grid>
     </Grid>
