@@ -1,0 +1,15 @@
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\ZebrasLib.dll.config
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\ZebrasLib.dll
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\ZebrasLib.pdb
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\Newtonsoft.Json.dll
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\System.Net.Http.dll
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\System.Net.Http.Extensions.dll
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\System.Net.Http.Primitives.dll
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\Newtonsoft.Json.xml
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\System.Net.Http.xml
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\System.Net.Http.Extensions.xml
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\bin\Release\System.Net.Http.Primitives.xml
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\obj\Release\ZebrasLib.csproj.App.config
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\obj\Release\ZebrasLib.csprojResolveAssemblyReference.cache
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\obj\Release\ZebrasLib.dll
+D:\DotNet\GitHub\ZebraMobile\ZebrasLib\obj\Release\ZebrasLib.pdb

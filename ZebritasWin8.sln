@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20617.1 PREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZebritasWin8", "ZebritasWin8\ZebritasWin8.csproj", "{61957C1B-6A4C-49C3-B371-2CA8DF3BBB59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZebrasLib", "ZebrasLib\ZebrasLib.csproj", "{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,16 @@ Global
 		{61957C1B-6A4C-49C3-B371-2CA8DF3BBB59}.Release|x86.ActiveCfg = Release|x86
 		{61957C1B-6A4C-49C3-B371-2CA8DF3BBB59}.Release|x86.Build.0 = Release|x86
 		{61957C1B-6A4C-49C3-B371-2CA8DF3BBB59}.Release|x86.Deploy.0 = Release|x86
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Release|x64.ActiveCfg = Release|Any CPU
+		{CE42BA4F-97A0-41F4-9CFA-01F734E1A2E7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

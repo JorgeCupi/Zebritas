@@ -1,1 +1,1 @@
-C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\ZebritasWin8.csproj;neutral
+E:\DotNet\GitHub\Zebritas\ZebritasWin8\ZebritasWin8.csproj;neutral
