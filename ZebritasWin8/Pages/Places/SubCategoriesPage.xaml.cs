@@ -15,6 +15,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Devices.Geolocation;
+using ZebrasLib.Classes;
+using System.Threading.Tasks;
+using ZebrasLib.Places;
 
 // The Split Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234234
 
@@ -58,13 +62,256 @@ namespace ZebritasWin8.Pages.Places
             // Setup the logical page navigation components that allow
             // the page to only show one pane at a time.
             this.navigationHelper.GoBackCommand = new ZebritasWin8.Common.RelayCommand(() => this.GoBack(), () => this.CanGoBack());
-            this.itemListView.SelectionChanged += itemListView_SelectionChanged;
+            this.lsvSubCategories.SelectionChanged += itemListView_SelectionChanged;
 
             // Start listening for Window size changes 
             // to change from showing two panes to showing a single pane
             Window.Current.SizeChanged += Window_SizeChanged;
             this.InvalidateVisualState();
+            watcher = new Geolocator();
+            watcher.MovementThreshold = 200;
+            latitude = 150;
+            longitude = 150;
+            comingBack = false;
+            this.Loaded += SubCategoriesPage_Loaded;
+            //prgPlaces.Visibility = System.Windows.Visibility.Visible;
         }
+
+        void  SubCategoriesPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            GetGps();
+        }
+
+        private async void GetGps()
+        {
+            Geoposition position = await watcher.GetGeopositionAsync();
+            latitude = position.Coordinate.Latitude;
+            longitude = position.Coordinate.Longitude;
+            //prgPlaces.Visibility = System.Windows.Visibility.Visible;
+            lstAllPlaces = await DownloadPlacesFromTheInternet(latitude, longitude);
+            //prgPlaces.Visibility = System.Windows.Visibility.Collapsed;
+            if (lstAllPlaces != null)
+            {
+                lstAllPlaces = PlacesMethods.getDistancesForEachPlace(latitude, longitude, lstAllPlaces);
+                PopulateLists(lstAllPlaces);
+            }
+            //watcher.Stop();
+        }
+
+        private Geolocator watcher;
+        List<Place> lstAllPlaces;
+        double latitude;
+        double longitude;
+        bool comingBack;
+        string categoryCode;
+        
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            pageTitle.DataContext = staticClasses.selectedCategory.name;
+            categoryCode = staticClasses.selectedCategory.code;
+            //prgPlaces.Visibility = System.Windows.Visibility.Collapsed;
+            if(!comingBack)
+            {
+                //LoadAppBar();
+                //watcher.Start();
+                comingBack = true;
+            }
+        }
+
+        //#region AppBar
+        //private void LoadAppBar()
+        //{
+        //    ApplicationBar = new ApplicationBar();
+
+        //    ApplicationBarIconButton btnUpdatePlaces = new ApplicationBarIconButton();
+        //    btnUpdatePlaces.IconUri = new Uri("/Assets/AppBar/download.png", UriKind.Relative);
+        //    btnUpdatePlaces.Text = AppResources.AppBarDownload;
+        //    btnUpdatePlaces.Click += btnUpdatePlaces_Click;
+        //    ApplicationBar.Buttons.Add(btnUpdatePlaces);
+        //}
+
+        //private async void btnUpdatePlaces_Click(object sender, EventArgs e)
+        //{
+        //    prgPlaces.IsIndeterminate = false;
+        //    prgPlaces.IsIndeterminate = true;
+        //    prgPlaces.Visibility = System.Windows.Visibility.Visible;
+        //    lstAllPlaces = await DownloadPlacesFromTheInternet(latitude,longitude);
+        //    if (lstAllPlaces != null)
+        //    {
+        //        lstAllPlaces = PlacesMethods.getDistancesForEachPlace(latitude, longitude, lstAllPlaces);
+        //        PopulateLists(lstAllPlaces);
+        //        UpdateDataBase(lstAllPlaces);
+        //    }
+        //    prgPlaces.Visibility = System.Windows.Visibility.Collapsed;
+        //}
+        //#endregion
+
+        //#region GPS
+        //private void watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        //{
+        //    switch (e.Status)
+        //    {
+        //        case GeoPositionStatus.Disabled:
+        //            MessageBox.Show(AppResources.TxtGPSDisabled);
+        //            NavigationService.GoBack();
+        //            break;
+
+        //        case GeoPositionStatus.NoData:
+        //            MessageBox.Show(AppResources.TxtGPSNoData);
+        //            NavigationService.GoBack();
+        //            break;
+
+        //        default:
+        //            break;
+        //    }
+        //}
+
+        //private async void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        //{
+        //    latitude = e.Position.Location.Latitude;
+        //    longitude = e.Position.Location.Longitude;
+        //    prgPlaces.Visibility = System.Windows.Visibility.Visible;
+        //    lstAllPlaces = await DownloadOrGetPlacesFromDataBase();
+        //    prgPlaces.Visibility = System.Windows.Visibility.Collapsed;
+        //    if (lstAllPlaces != null)
+        //    {
+        //        lstAllPlaces = PlacesMethods.getDistancesForEachPlace(latitude,longitude, lstAllPlaces);
+        //        PopulateLists(lstAllPlaces);
+        //    }
+        //    watcher.Stop();
+        //}
+        //#endregion
+
+        //private async Task<List<Place>>DownloadOrGetPlacesFromDataBase()
+        //{
+        //    List<Place> lstToReturn = new List<Place>();
+        //    if (App.AutoDownloadsPlaces)
+        //    {
+        //        prgPlaces.Visibility = System.Windows.Visibility.Visible;
+        //        lstToReturn = await DownloadPlacesFromTheInternet(latitude, longitude);
+        //        prgPlaces.Visibility = System.Windows.Visibility.Collapsed;
+        //    }
+        //    if (lstToReturn != null)
+        //        return lstToReturn;
+        //    lstToReturn = DBPhone.PlacesMethods.GetItems(DBPhone.CategoriesMethods.GetSubCategoriesCodes(categoryCode));
+
+        //    if (lstToReturn != null)
+        //        return lstToReturn;
+        //    else {
+        //        SetVisibilities(AppResources.TxtNoPlaces, Visibility.Visible, Visibility.Collapsed);
+        //        return null;
+        //    }
+                
+        //}
+
+        private async Task<List<Place>> DownloadPlacesFromTheInternet(double latitude, double longitude)
+        {
+            List<Place> lstFromTheInternet = await PlacesMethods.getAllPlacesByCategory(categoryCode, 59.9188200940917, 30.2882713079452);
+            if (lstFromTheInternet != null)
+            {
+                if (lstFromTheInternet.Count > 0)
+                {
+                    foreach (Place P in lstFromTheInternet)
+                        P.parentCategoryCode = categoryCode;
+                    //UpdateDataBase(lstFromTheInternet);
+                    return lstFromTheInternet;
+                }
+            }
+            return null;
+        }
+
+        //private void SetVisibilities(string message, Visibility forTheMessages, Visibility forTheLists)
+        //{
+        //    txtNoPlacesFound.Text = message;
+        //    txtNoNearPlacesFound.Text = message;
+        //    txtNoPopularPlacesFound.Text = message;
+        //    txtNoPlacesFound.Visibility = forTheMessages;
+        //    txtNoNearPlacesFound.Visibility = forTheMessages;
+        //    txtNoPopularPlacesFound.Visibility = forTheMessages;
+        //    lstbAllPlaces.Visibility = forTheLists;
+        //}
+
+        //private void UpdateDataBase(List<Place> toAddList)
+        //{   
+        //    DBPhone.PlacesMethods.RemoveItems(categoryCode);
+        //    DBPhone.PlacesMethods.AddItems(toAddList);
+        //}
+
+        private void PopulateLists(List<Place> lstAllPlaces)
+        {
+            //List<Place> lstTempPlaces;
+            lsvSubCategories.ItemsSource = getDajaCategories(lstAllPlaces);
+            lsvSubCategories.Visibility = Visibility.Visible;
+            //txtNoPlacesFound.Visibility = Visibility.Collapsed;
+
+            //lstTempPlaces = PlacesMethods.getPlacesOrderedByPopularity(lstAllPlaces);
+            //if (lstTempPlaces.Count > 0)
+            //{
+            //    lstbPopularPlaces.ItemsSource = getDajaCategories(lstTempPlaces);
+            //    txtNoPlacesFound.Visibility = Visibility.Collapsed;
+            //    lstbPopularPlaces.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    txtNoPopularPlacesFound.Text = AppResources.TxtNoPopularPlaces;
+            //    txtNoPopularPlacesFound.Visibility = Visibility.Visible;
+            //    lstbPopularPlaces.Visibility = Visibility.Collapsed;
+            //} 
+
+            //lstTempPlaces = PlacesMethods.getPlacesNear(lstAllPlaces,App.nearDistance);
+            //if (lstTempPlaces.Count > 0)
+            //{
+            //    lstbNearPlaces.ItemsSource = getDajaCategories(lstTempPlaces);
+            //    lstbNearPlaces.Visibility = Visibility.Visible;
+            //    txtNoNearPlacesFound.Visibility = Visibility.Collapsed;
+            //}
+            //else
+            //{
+            //    txtNoNearPlacesFound.Text = AppResources.TxtNoNearPlaces;
+            //    lstbNearPlaces.Visibility = Visibility.Collapsed;
+            //    txtNoNearPlacesFound.Visibility = Visibility.Visible;
+            //} 
+        }
+
+        //private void placeSelected(object sender, GestureEventArgs e)
+        //{
+        //    staticClasses.selectedPlace = (((sender as StackPanel).Tag) as Place);
+        //    //NavigationService.Navigate(new Uri("/Pages/Places/SelectedPlacePage.xaml?comingFrom=Selected", UriKind.Relative));
+
+        //}
+
+        private List<bindingCategory> getDajaCategories(List<Place> lstPlaces)
+        {
+            List<bindingCategory> lstCategoriesDaja = new List<bindingCategory>();
+            List<Category> lstSubCategories = staticClasses.selectedCategory.subCategories;
+            bindingCategory categoryDaja;
+
+            foreach (Category subCategory in lstSubCategories)
+            {
+                categoryDaja = new bindingCategory();
+                categoryDaja.category = subCategory;
+                var query = from variable
+                            in lstPlaces
+                            where variable.categoryCode.Equals(subCategory.code)
+                            select variable;
+                    
+                categoryDaja.lstPlaces = query.ToList();
+                lstCategoriesDaja.Add(categoryDaja);
+            }
+            return lstCategoriesDaja;
+        }
+
+
+
+
+
+
+
+
+
+
 
         void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -175,7 +422,7 @@ namespace ZebritasWin8.Pages.Places
 
         private bool CanGoBack()
         {
-            if (this.UsingLogicalPageNavigation() && this.itemListView.SelectedItem != null)
+            if (this.UsingLogicalPageNavigation() && this.lsvSubCategories.SelectedItem != null)
             {
                 return true;
             }
@@ -186,13 +433,13 @@ namespace ZebritasWin8.Pages.Places
         }
         private void GoBack()
         {
-            if (this.UsingLogicalPageNavigation() && this.itemListView.SelectedItem != null)
+            if (this.UsingLogicalPageNavigation() && this.lsvSubCategories.SelectedItem != null)
             {
                 // When logical page navigation is in effect and there's a selected item that
                 // item's details are currently displayed.  Clearing the selection will return to
                 // the item list.  From the user's point of view this is a logical backward
                 // navigation.
-                this.itemListView.SelectedItem = null;
+                this.lsvSubCategories.SelectedItem = null;
             }
             else
             {
@@ -220,7 +467,7 @@ namespace ZebritasWin8.Pages.Places
                 return "PrimaryView";
 
             // Update the back button's enabled state when the view state changes
-            var logicalPageBack = this.UsingLogicalPageNavigation() && this.itemListView.SelectedItem != null;
+            var logicalPageBack = this.UsingLogicalPageNavigation() && this.lsvSubCategories.SelectedItem != null;
 
             return logicalPageBack ? "SinglePane_Detail" : "SinglePane";
         }
@@ -238,10 +485,7 @@ namespace ZebritasWin8.Pages.Places
         /// The navigation parameter is available in the LoadState method 
         /// in addition to page state preserved during an earlier session.
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            navigationHelper.OnNavigatedTo(e);
-        }
+        
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {

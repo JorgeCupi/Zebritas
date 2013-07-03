@@ -45,6 +45,9 @@ namespace ZebrasLib
             [JsonProperty("Rating")]
             public int rating { get; set; }
 
+            [JsonProperty("RatingCount")]
+            public int ratingCount { get; set; }
+
             [JsonProperty("Latitude")]
             public string strlatitude{get;set;}
             

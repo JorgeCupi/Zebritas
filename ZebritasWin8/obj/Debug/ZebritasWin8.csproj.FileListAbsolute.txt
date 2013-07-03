@@ -72,7 +72,6 @@ C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\qualifiers.tx
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\qualifiers.txt.intermediate
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\ProjectArchitectures.txt
-C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Bing.Maps\Themes\Generic.xbf
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Pages\Places\SelectedPlacePage.g.i.cs
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Pages\Places\SelectedPlacePage.g.cs
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Pages\Places\CategoryPage.g.i.cs
@@ -158,3 +157,14 @@ E:\DotNet\GitHub\Zebritas\ZebritasWin8\obj\Debug\qualifiers.txt
 E:\DotNet\GitHub\Zebritas\ZebritasWin8\obj\Debug\qualifiers.txt.intermediate
 E:\DotNet\GitHub\Zebritas\ZebritasWin8\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 E:\DotNet\GitHub\Zebritas\ZebritasWin8\obj\Debug\ProjectArchitectures.txt
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\ZebritasWin8.csprojResolveAssemblyReference.cache
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\UserControls\uscPushPin.g.i.cs
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\UserControls\uscPushPin.g.cs
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\UserControls\uscPushPin.xaml
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\UserControls\uscPushPin.xbf
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\UserControls\uscPushPin.xbf
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\ZebrasLib.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Newtonsoft.Json.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\ZebrasLib.pdb
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Newtonsoft.Json.xml
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Bing.Maps\Themes\Generic.xbf

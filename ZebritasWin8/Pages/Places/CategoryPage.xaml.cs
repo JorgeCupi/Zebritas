@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Devices.Geolocation;
+using ZebrasLib.Classes;
+using ZebritasWin8.Pages.Places;
+using ZebrasLib.Places;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -43,21 +47,140 @@ namespace ZebritasWin8.Pages.Menus
         {
             get { return this.navigationHelper; }
         }
-
-
+        private bool comingBack;
+        private Geolocator watcher;
+        List<Category> returned;
         public CategoryPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
-            this.Loaded += BasicPage1_Loaded;
+            this.Loaded += CategoriesPage_Loaded;
+            comingBack = false;
+            grvCategories.SelectionChanged += lstCategoryList_SelectionChanged;
+            //lstSearchResults.SelectionChanged += lstSearchResults_SelectionChanged;
+            //txtSearch.ActionIconTapped += txtSearch_ActionIconTapped;
+            watcher = new Geolocator();
+            watcher.MovementThreshold = 200;
         }
 
-        void BasicPage1_Loaded(object sender, RoutedEventArgs e)
+        //void lstSearchResults_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    Place place = lstSearchResults.SelectedItem as Place;
+        //    if (place != null)
+        //    {
+        //        staticClasses.selectedPlace = place;
+        //        NavigationService.Navigate(new Uri("/Pages/Places/SelectedPlacePage.xaml?comingFrom=Search", UriKind.Relative));
+        //    }
+        //}
+
+        //void watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        //{
+        //    switch (e.Status)
+        //    {
+        //        case GeoPositionStatus.Disabled:
+        //            MessageBox.Show(AppResources.TxtGPSDisabled);
+        //            NavigationService.GoBack();
+        //            break;
+        //        case GeoPositionStatus.NoData:
+        //            MessageBox.Show(AppResources.TxtGPSNoData);
+        //            NavigationService.GoBack();
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
+
+        private void CategoriesPage_Loaded(object sender, RoutedEventArgs e)
         {
-            //cargar datos al gridview
+            GetGps();
+            if (!comingBack)
+            {
+                //grvCategories.ItemsSource = DBPhone.CategoriesMethods.GetItems();
+                comingBack = true;
+            }
         }
+
+        private async void GetGps()
+        {
+            Geoposition position = await watcher.GetGeopositionAsync();
+            double latitude = position.Coordinate.Latitude;
+            double longitude = position.Coordinate.Longitude;
+            //prgSearchProgress.Visibility = System.Windows.Visibility.Visible;
+            try
+            {
+                returned = await PlacesMethods.getCategories();
+                if(returned!=null)
+                {
+                    grvCategories.ItemsSource = returned;
+                }
+            }
+             catch (Exception)
+            { /*Don't worry, be happy.*/}
+            finally
+            {
+                //prgSearchProgress.Visibility = System.Windows.Visibility.Collapsed;
+                //watcher.Stop();
+            }
+        }
+
+        private void lstCategoryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {            
+            Category selectedcategory = grvCategories.SelectedItem as Category;
+            if (selectedcategory != null)
+            {
+                if (selectedcategory.name != "")
+                {
+                    staticClasses.selectedCategory = selectedcategory;
+                    this.Frame.Navigate(typeof(SubCategoriesPage));
+                    //NavigationService.Navigate(new Uri("/Pages/Places/PlacesPage.xaml", UriKind.Relative));
+                    grvCategories.SelectedIndex = -1;
+                }
+            }
+        }
+
+        //#region Search
+        //private void txtSearch_ActionIconTapped(object sender, EventArgs e)
+        //{
+        //    lstSearchResults.ItemsSource = new List<Place>(); 
+        //    lstSearchResults.Focus();
+        //    if (txtSearch.Text.Length > 0)
+        //    {
+        //        //Don't touch. SERIOUSLY don't touch.
+        //        //It's the only GeoCoordinateWatcher that won't work on the whole App.
+        //        try
+        //        {
+        //            watcher.Start();
+        //        }
+        //        catch (Exception ex)
+        //        { /*Beg so this don't crash again (don't even know why)*/}
+        //    }
+            
+        //    else MessageBox.Show(AppResources.TxtSearchFailed);
+        //}
+
+        //private async void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        //{
+        //    double latitude = e.Position.Location.Latitude;
+        //    double longitude = e.Position.Location.Longitude;
+        //    prgSearchProgress.Visibility = System.Windows.Visibility.Visible;
+        //    try
+        //    {
+        //        List<Place> lstReturned = await PlacesMethods.getPlacesByQuery(txtSearch.Text, latitude, longitude);
+        //        if (lstReturned != null)
+        //                lstSearchResults.ItemsSource = lstReturned;
+        //        else MessageBox.Show(AppResources.TxtInternetConnectionProblem);
+        //    }
+        //    catch (Exception)
+        //    { /*Don't worry, be happy.*/}
+        //    finally
+        //    {
+        //        prgSearchProgress.Visibility = System.Windows.Visibility.Collapsed;
+        //        watcher.Stop();
+        //    }
+        //}
+        //#endregion
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also

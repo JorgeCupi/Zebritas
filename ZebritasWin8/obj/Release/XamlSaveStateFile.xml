@@ -1,0 +1,7 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\msadvertisingxaml\8.1\references\commonconfiguration\neutral\microsoft.advertising.winrt.ui.winmd" HashGuid="e403fbb9-d577-9fd4-8316-dd2059d25db7" />
+    <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\msadvertisingxaml\8.1\references\commonconfiguration\neutral\microsoftadvertising.winmd" HashGuid="2f08ce05-be38-07f6-713a-9d03927d64d0" />
+    <ReferenceAssembly PathName="c:\users\d'jalmar\documents\github\zebritas\zebraslib\bin\release\zebraslib.dll" HashGuid="ab12da9b-2a2e-4f79-0fc7-ef67d712822c" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>

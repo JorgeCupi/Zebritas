@@ -1,3 +1,17 @@
+Assets\Icons\Categories\art.png
+Assets\Icons\Categories\banc.png
+Assets\Icons\Categories\beer.png
+Assets\Icons\Categories\build.png
+Assets\Icons\Categories\cine.png
+Assets\Icons\Categories\coffee.png
+Assets\Icons\Categories\hospital.png
+Assets\Icons\Categories\internet.png
+Assets\Icons\Categories\night.png
+Assets\Icons\Categories\rent.png
+Assets\Icons\Categories\restaurant.png
+Assets\Icons\Categories\shop.png
+Assets\Icons\Categories\sports.png
+Assets\Icons\Categories\transport.png
 Assets\Logo.png
 Assets\SmallLogo.png
 Assets\SplashScreen.png
@@ -10,4 +24,5 @@ Pages\Places\CategoryPage.xbf
 Pages\Places\SelectedPlacePage.xbf
 Pages\Places\SubCategoriesPage.xbf
 Pages\Problems\TroublesPage.xbf
+UserControls\uscPushPin.xbf
 Common\ReadMe.txt

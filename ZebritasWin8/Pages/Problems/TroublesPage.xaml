@@ -112,9 +112,10 @@
                 <StackPanel Orientation="Horizontal">
                     <maps:Map Margin="20" 
                               Width="800"
+                              x:Name="mapTroubles"
                               Credentials="AnX1Ce23CkVCB9D7puW1VJGwm9ERHBuZO6sYLLdXzJtgH8fOI-lnczQiuF417WSs"></maps:Map>
                     <Grid Width="420">
-                        <ListView x:Name="lsvAllPeople"
+                        <ListView x:Name="lstTroubles"
                                 AutomationProperties.AutomationId="ItemsListView"
                                 AutomationProperties.Name="Items"
                                 TabIndex="1"
@@ -146,7 +147,7 @@
                         </ListView>
                     </Grid>
                     <Grid Width="420">
-                        <ListView x:Name="lsvFriends"
+                        <ListView x:Name="lstTroublesByFriends"
                                 AutomationProperties.AutomationId="ItemsListView"
                                 AutomationProperties.Name="Items"
                                 TabIndex="1"
