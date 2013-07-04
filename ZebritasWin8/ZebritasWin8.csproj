@@ -130,6 +130,9 @@
     <Compile Include="Pages\Places\SubCategoriesPage.xaml.cs">
       <DependentUpon>SubCategoriesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Problems\ReportersPage.xaml.cs">
+      <DependentUpon>ReportersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Problems\TroublesPage.xaml.cs">
       <DependentUpon>TroublesPage.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Places\SubCategoriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Problems\ReportersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -133,8 +133,8 @@
                                             <Image Source="{Binding icon}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                                         </Border>
                                         <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                                            <TextBlock Text="{Binding name}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap" MaxHeight="40"/>
-                                            <TextBlock Text="{Binding places}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                                            <TextBlock Text="{Binding description}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="Wrap" MaxHeight="40"/>
+                                            <TextBlock Text="{Binding Path=reporters.Count}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>

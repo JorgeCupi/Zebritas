@@ -23,6 +23,7 @@ MainPage.xbf
 Pages\Places\CategoryPage.xbf
 Pages\Places\SelectedPlacePage.xbf
 Pages\Places\SubCategoriesPage.xbf
+Pages\Problems\ReportersPage.xbf
 Pages\Problems\TroublesPage.xbf
 UserControls\uscPushPin.xbf
 Common\ReadMe.txt

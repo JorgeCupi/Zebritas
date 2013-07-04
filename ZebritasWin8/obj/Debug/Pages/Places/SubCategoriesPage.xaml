@@ -72,12 +72,17 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="60" Height="60">
-                            <Image Source="{Binding icon}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                        </Border>
+                        <!--<Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="60" Height="60">
+                            <Image 
+                                Source="{Binding Path=category.icon}" 
+                                Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                        </Border>-->
                         <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                            <TextBlock Text="{Binding name}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap" MaxHeight="40"/>
-                            <TextBlock Text="{Binding places}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                            <TextBlock Text="{Binding Path=category.name}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap" MaxHeight="40"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=lstPlaces.Count}" Style="{ThemeResource SubtitleTextBlockStyle}" TextWrapping="NoWrap"/>
+                                <TextBlock Text="  place(s) found" Style="{ThemeResource SubtitleTextBlockStyle}" TextWrapping="NoWrap"/>
+                            </StackPanel>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -93,24 +98,24 @@
         <GridView
             x:Name="itemGridView"
             Grid.Column="1"
+            Grid.Row="1"
             Grid.RowSpan="2"
             Padding="60,0,66,0"
             AutomationProperties.AutomationId="ItemsGridView"
             AutomationProperties.Name="Items"
             TabIndex="1"
+            DataContext="{Binding SelectedItem, ElementName=lsvSubCategories}"
+            ItemsSource="{Binding lstPlaces}"
             SelectionMode="None"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid HorizontalAlignment="Left" Width="250" Height="250">
-                        <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                            <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                        </Border>
-                        <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
-                            <TextBlock Text="{Binding name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource BaseTextBlockStyle}" Height="60" Margin="15,0,15,0" FontWeight="SemiBold"/>
-                            <TextBlock Text="{Binding address}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource BaseTextBlockStyle}" Height="60" Margin="15,0,15,0" FontWeight="SemiBold"/>
-                            <HyperlinkButton Content="{Binding webSite}" Margin="15,0,15,10" FontSize="12"/>
+                    <Grid HorizontalAlignment="Left" Width="250" Height="150">
+                        <StackPanel Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                            <TextBlock Text="{Binding name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}" Margin="12" />
+                            <TextBlock Text="{Binding address}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="12" />
+                            <HyperlinkButton Content="{Binding webSite}" Margin="12"  FontSize="14"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

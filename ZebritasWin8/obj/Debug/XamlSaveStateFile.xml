@@ -1,10 +1,10 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\d'jalmar\documents\github\zebritas\zebritaswin8\obj\debug\intermediatexaml\zebritaswin8.exe" HashGuid="8e337c93-688b-d878-5784-0d7a20af498d" />
+    <LocalAssembly PathName="c:\users\d'jalmar\documents\github\zebritas\zebritaswin8\obj\debug\intermediatexaml\zebritaswin8.exe" HashGuid="1be1c274-3be0-7b72-e927-8456afbe7881" />
     <ReferenceAssembly PathName="c:\users\d'jalmar\appdata\local\microsoft sdks\windows\v8.1\extensionsdks\bing.maps.xaml\1.313.0601.0\references\commonconfiguration\neutral\bing.maps.winmd" HashGuid="dcdce9e5-521a-6d20-3956-9df814dff813" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\msadvertisingxaml\8.1\references\commonconfiguration\neutral\microsoft.advertising.winrt.ui.winmd" HashGuid="e403fbb9-d577-9fd4-8316-dd2059d25db7" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\msadvertisingxaml\8.1\references\commonconfiguration\neutral\microsoftadvertising.winmd" HashGuid="2f08ce05-be38-07f6-713a-9d03927d64d0" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="da066686-6c3f-900e-e87c-0ff1995d9b6b" />
-    <ReferenceAssembly PathName="c:\users\d'jalmar\documents\github\zebritas\zebraslib\bin\debug\zebraslib.dll" HashGuid="03f7951e-8076-a556-c9fa-decf93618cb7" />
+    <ReferenceAssembly PathName="c:\users\d'jalmar\documents\github\zebritas\zebraslib\bin\debug\zebraslib.dll" HashGuid="022014d2-d0bc-19c2-9b6f-ea257c5220a3" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

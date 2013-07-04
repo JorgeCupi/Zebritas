@@ -51,12 +51,12 @@ namespace ZebritasWin8.UserControls
                 elpPush.Fill = new SolidColorBrush(Colors.Red);
             else
                 elpPush.Fill = GetColor(evento.reporters);
-            imgIconCategory.Source = new BitmapImage(GetIcon(evento.type));
+            //imgIconCategory.Source = new BitmapImage(GetIcon(evento.type));
         }
 
         private Uri GetIcon(int p)
         {
-            return new Uri("/images/Icons/cine.png", UriKind.Relative);
+            return new Uri("/Assets/SmallLogo.png", UriKind.Relative);
         }
 
         private Brush GetColor(System.Collections.Generic.List<Reporter> list)

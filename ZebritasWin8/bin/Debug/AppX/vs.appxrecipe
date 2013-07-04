@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-07-03T01:22:58.189</Modified>
+      <Modified>2013-07-03T23:46:14.544</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\ZebritasWin8.exe">
       <PackagePath>ZebritasWin8.exe</PackagePath>
-      <Modified>2013-07-03T01:27:01.908</Modified>
+      <Modified>2013-07-04T01:24:02.714</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\ZebritasWin8.pdb">
       <PackagePath>ZebritasWin8.pdb</PackagePath>
-      <Modified>2013-07-03T01:27:01.883</Modified>
+      <Modified>2013-07-04T01:24:02.681</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0601.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -42,7 +42,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Debug\ZebrasLib.dll">
       <PackagePath>ZebrasLib.dll</PackagePath>
-      <Modified>2013-07-02T01:37:48.487</Modified>
+      <Modified>2013-07-03T20:31:04.691</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Debug\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -50,7 +50,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Debug\ZebrasLib.pdb">
       <PackagePath>ZebrasLib.pdb</PackagePath>
-      <Modified>2013-07-02T01:37:48.410</Modified>
+      <Modified>2013-07-03T20:31:04.663</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\MSAdvertisingXaml\8.1\Redist\CommonConfiguration\neutral\Microsoft.Advertising.WinRT.UI\AdSettingsFlyout.xbf">
       <PackagePath>Microsoft.Advertising.WinRT.UI\AdSettingsFlyout.xbf</PackagePath>
@@ -458,43 +458,47 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2013-06-30T14:16:44.256</Modified>
+      <Modified>2013-07-03T20:31:07.153</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Common\StandardStyles.xbf">
       <PackagePath>Common\StandardStyles.xbf</PackagePath>
-      <Modified>2013-06-29T18:56:14.860</Modified>
+      <Modified>2013-07-03T20:31:07.155</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2013-06-30T14:16:44.256</Modified>
+      <Modified>2013-07-03T20:31:07.156</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Places\SelectedPlacePage.xbf">
       <PackagePath>Pages\Places\SelectedPlacePage.xbf</PackagePath>
-      <Modified>2013-06-30T14:16:44.257</Modified>
+      <Modified>2013-07-03T20:31:07.157</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Places\CategoryPage.xbf">
       <PackagePath>Pages\Places\CategoryPage.xbf</PackagePath>
-      <Modified>2013-07-02T02:13:32.396</Modified>
+      <Modified>2013-07-03T20:31:07.159</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Places\SubCategoriesPage.xbf">
       <PackagePath>Pages\Places\SubCategoriesPage.xbf</PackagePath>
-      <Modified>2013-07-02T02:13:32.398</Modified>
+      <Modified>2013-07-04T01:24:02.231</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Problems\ReportersPage.xbf">
+      <PackagePath>Pages\Problems\ReportersPage.xbf</PackagePath>
+      <Modified>2013-07-04T01:22:02.945</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Problems\TroublesPage.xbf">
       <PackagePath>Pages\Problems\TroublesPage.xbf</PackagePath>
-      <Modified>2013-06-30T14:21:13.496</Modified>
+      <Modified>2013-07-04T01:22:02.948</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\UserControls\uscPushPin.xbf">
       <PackagePath>UserControls\uscPushPin.xbf</PackagePath>
-      <Modified>2013-06-30T14:21:13.496</Modified>
+      <Modified>2013-07-03T20:31:07.163</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2013-07-03T01:27:01.510</Modified>
+      <Modified>2013-07-04T01:24:02.345</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-07-02T01:30:21.120</Modified>
+      <Modified>2013-07-03T23:46:06.700</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -214,7 +214,10 @@ namespace ZebritasWin8.Pages.Places
                 if (lstFromTheInternet.Count > 0)
                 {
                     foreach (Place P in lstFromTheInternet)
+                    {
                         P.parentCategoryCode = categoryCode;
+                    }
+
                     //UpdateDataBase(lstFromTheInternet);
                     return lstFromTheInternet;
                 }
@@ -298,6 +301,7 @@ namespace ZebritasWin8.Pages.Places
                             select variable;
                     
                 categoryDaja.lstPlaces = query.ToList();
+                categoryDaja.category.icon = "/Assets/Icons/Categories/" + categoryDaja.category.icon;
                 lstCategoriesDaja.Add(categoryDaja);
             }
             return lstCategoriesDaja;

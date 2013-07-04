@@ -85,7 +85,7 @@ namespace ZebritasWin8.Pages.Problems
             latitude = coordinate.Coordinate.Latitude;
             longitude = coordinate.Coordinate.Longitude;
             //prgEvents.Visibility = System.Windows.Visibility.Visible;
-            lstEvents = await ProblemsMethods.GetProblems(latitude, longitude, Main.GetValueFromTimeZone());
+            lstEvents = await ProblemsMethods.GetProblems(-16.4927, -68.1604, Main.GetValueFromTimeZone());
             if (lstEvents != null)
             {
                 //lstEvents = await OurFacebook.FacebookMethods.GetFbInfoForTheseReporters(lstEvents, App.facebookAccessToken);
@@ -104,7 +104,14 @@ namespace ZebritasWin8.Pages.Problems
 
         void lstTroubles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            Problem problem=lstTroubles.SelectedItem as Problem;
+            if(problem!=null)
+            {
+                staticClasses.selectedEvent = problem;
+                this.Frame.Navigate(typeof(ReportersPage));
+                lstTroubles.SelectedItem = null;
+                lstTroubles.SelectedIndex = -1;
+            }
         }
 
         private void TroublesPage_Loaded(object sender, RoutedEventArgs e)
@@ -198,10 +205,12 @@ namespace ZebritasWin8.Pages.Problems
                 //overlay.GeoCoordinate = new GeoCoordinate(item.latitude, item.longitude);
                 //layers.Add(overlay);}
                 layers.Children.Add(pushPin);
+                MapLayer.SetPosition(pushPin, new Location(item.latitude, item.longitude));
             }
             mapTroubles.Center = new Location(latitude, longitude);
             mapTroubles.Children.Add(layers);
             lstTroubles.ItemsSource = lstEvents;
+            
         }
 
         //private void lstTroubles_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

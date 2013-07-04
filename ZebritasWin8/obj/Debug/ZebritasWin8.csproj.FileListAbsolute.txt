@@ -168,3 +168,8 @@ C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Newtonsoft.Js
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\ZebrasLib.pdb
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Newtonsoft.Json.xml
 C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Bing.Maps\Themes\Generic.xbf
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Problems\ReportersPage.xbf
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Pages\Problems\ReportersPage.g.i.cs
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Pages\Problems\ReportersPage.g.cs
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Pages\Problems\ReportersPage.xaml
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebritasWin8\obj\Debug\Pages\Problems\ReportersPage.xbf

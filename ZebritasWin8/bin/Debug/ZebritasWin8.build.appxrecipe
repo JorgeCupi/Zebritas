@@ -359,6 +359,9 @@
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Places\SubCategoriesPage.xbf">
       <PackagePath>Pages\Places\SubCategoriesPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Problems\ReportersPage.xbf">
+      <PackagePath>Pages\Problems\ReportersPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\D%27jalmar\Documents\GitHub\Zebritas\ZebritasWin8\bin\Debug\Pages\Problems\TroublesPage.xbf">
       <PackagePath>Pages\Problems\TroublesPage.xbf</PackagePath>
     </AppxPackagedFile>

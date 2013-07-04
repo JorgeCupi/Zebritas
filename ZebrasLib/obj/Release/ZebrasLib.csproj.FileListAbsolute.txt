@@ -1,0 +1,14 @@
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\ZebrasLib.dll.config
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\ZebrasLib.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\ZebrasLib.pdb
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\Newtonsoft.Json.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\System.Net.Http.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\System.Net.Http.Extensions.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\System.Net.Http.Primitives.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\Newtonsoft.Json.xml
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\System.Net.Http.xml
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\System.Net.Http.Extensions.xml
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\bin\Release\System.Net.Http.Primitives.xml
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\obj\Release\ZebrasLib.csproj.App.config
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\obj\Release\ZebrasLib.dll
+C:\Users\D'jalmar\Documents\GitHub\Zebritas\ZebrasLib\obj\Release\ZebrasLib.pdb
